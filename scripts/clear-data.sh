@@ -11,7 +11,7 @@ curl -X POST "http://192.168.3.132:9200/$index/_delete_by_query?pretty" -H 'cont
          "must":[{
              "range":{
                 "@timestamp":{
-                    "lte":"now",
+                    "lte":"now-30d",
 		     "format":"epoch_millis"
                    }
                 }
