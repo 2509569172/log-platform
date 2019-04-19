@@ -11,7 +11,7 @@ curl -X POST "http://192.168.3.132:9200/$index/_delete_by_query?pretty" -H 'cont
          "must":[{
              "range":{
                 "@timestamp":{
-                    "lte":"now-30d",
+                    "lte":"now",
 		     "format":"epoch_millis"
                    }
                 }
@@ -19,6 +19,6 @@ curl -X POST "http://192.168.3.132:9200/$index/_delete_by_query?pretty" -H 'cont
             "must_not":[]
            }
        }
-}‘
+}'
 echo "already delete $index 3-days old data" >> /usr/local/work/log/clear.log
 done
