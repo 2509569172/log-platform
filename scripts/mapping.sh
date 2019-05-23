@@ -1,87 +1,28 @@
-#!/bin/bash
-
-updateMapping(){
-	#index=http-managent
-	index=$1
-
-	curl -X POST "http://192.168.3.132:9200/$index/_close?pretty"
-
-	sleep 3
-	curl -H 'content-type:application/json' -XPUT "http://192.168.3.132:9200/$index/_settings?pretty" -d ' 
-	{
- 	"analysis":{
-   		"analyzer":{
-      		"default":{
-        		"type":"keyword"
-       	 	}
-    	     }
- 	   }
-	}'
-	
-	sleep 3
-	curl -X POST "http://192.168.3.132:9200/$index/_open?pretty"
-}
 
 
-findByPage(){
-	index=$1
+#curl -H 'content-type:application/json' -XPOST "http://192.168.3.132:9200/_aliases?pretty" -d '
+#{
+#	"actions":[
+#		{
+#			"add":{
+#				"alias":"http-managent-alias",
+#				"index":"http-managent"
+#			}
+#		}
+#	]
+#}'
 
-	curl -H 'content-type:application/json' -XGET "http://192.168.3.132:9200/$index/_search?pretty" -d '
-	{
-		"query":{
-                  "bool":{
-                    "should":[{"wildcard":{"msg":"*hosts set*"}}]
-		   }
-                }
-	}'
-}
+#sleep 3
 
-
-
-findIndex(){
-	url=$1
-	
-	curl -XGET "$url/_cat/indices?v"
-}
-
-
-
-# sort asc/desc
-sortIndex(){
-	index=$1
-	url=$2
-	curl -H 'content-type:application/json' -XGET "$url/$index/_search?pretty" -d '
+curl -XDELETE "http://192.168.3.132:9200/http-managent?pretty"
+curl -XPUT "http://192.168.3.132:9200/http-managent-v1?pretty"
+curl -H 'content-type:application/json' -XPOST "http://192.168.3.132:9200/http-managent-v1/doc/_mapping?pretty" -d '
         {
-		"size":1,
-		"sort":[{"@timestamp":"asc"}]
-	}'
-}
-
-
-findIndexAll(){
-	index=$1
-	url=$2
-	curl -H 'content-type:application/json' -XGET "$url/$index/_search?pretty"
-}
-
-getMapping(){
-	index=$1
-	url=$2
-	curl -H 'content-type:application/json' -XGET "$url/$index/_mapping?pretty"
-}
-
-setMapping(){
-	index=$1
-	url=$2
-	curl -X POST "http://192.168.3.132:9200/$index/_close?pretty"
-	sleep 3
-	curl -H 'content-type:application/json' -XPOST "$url/$index/doc/_mapping?pretty" -d '
-	{
       "doc" : {
         "properties" : {
           "@timestamp" : {
- 	    "type" : "date",
-	    "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis||strict_date_optional_time"
+            "type" : "date",
+            "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis||strict_date_optional_time"
           },
           "classline" : {
             "type" : "text",
@@ -168,24 +109,22 @@ setMapping(){
       }
     }
 '
+
 sleep 3
-curl -X POST "http://192.168.3.132:9200/$index/_open?pretty"
-}
+curl -H 'content-type:application/json' -XPOST 'http://192.168.3.132:9200/_aliases?pretty' -d '
+{
+	"actions":[
+		{
+			"add":{
+				"alias":"http-managent",
+				"index":"http-managent-v1"
+			}
+		}
+	]
 
-#----------------------------------------------
-# - - - - - -  running function - - - - - - 
-#----------------------------------------------
+}'
 
-#findByPage "http-managent"
+curl -XGET 'http://192.168.3.132:9200/_cat/indices?v'
+#sleep 3
 
-#findIndex "http://192.168.3.132:9200"
-
-#findIndex "http://120.77.178.98:9200"
-
-#sortIndex "mqtt-server" "http://120.77.178.98:9200"
-
-#findIndexAll "node-exporter" "http://192.168.3.132:9200"
-
-setMapping "http-managent" "http://192.168.3.132:9200"
-getMapping "http-managent" "http://192.168.3.132:9200"
-
+#curl -XDELETE "http://192.168.3.132:9200/http-managent?pretty"
