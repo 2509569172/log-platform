@@ -14,7 +14,7 @@
 
 #sleep 3
 
-curl -XDELETE "http://192.168.3.132:9200/http-managent?pretty"
+curl -XDELETE "http://192.168.3.132:9200/http-managent-v1?pretty"
 curl -XPUT "http://192.168.3.132:9200/http-managent-v1?pretty"
 curl -H 'content-type:application/json' -XPOST "http://192.168.3.132:9200/http-managent-v1/doc/_mapping?pretty" -d '
         {
@@ -61,7 +61,7 @@ curl -H 'content-type:application/json' -XPOST "http://192.168.3.132:9200/http-m
             }
           },
           "msg" : {
-            "type" : "text",
+            "type" : "keyword",
             "fields" : {
               "keyword" : {
                 "type" : "keyword",
