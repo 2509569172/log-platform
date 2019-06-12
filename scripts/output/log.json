@@ -1,0 +1,196 @@
+{
+  "took" : 78,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 5,
+    "successful" : 5,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 17417013,
+    "max_score" : 1.0,
+    "hits" : [
+      {
+        "_index" : "mqtt-server-v1",
+        "_type" : "doc",
+        "_id" : "s-HpJGsBYRycsKJ_VUkk",
+        "_score" : 1.0,
+        "_source" : {
+          "src" : "mqtt-server",
+          "logdate" : "2019-06-05 07:53:19.142",
+          "level" : "DEBUG",
+          "thread" : "[vert.x-eventloop-thread-1]",
+          "type" : "kafka",
+          "msg" : ">>> PUBLISH: 1 topic[/orangeiot/GW01183811030/call] payload length[221] qos[LEAST_ONE] retain[false] dup[false]\n",
+          "process" : "mqtt-server",
+          "@timestamp" : "2019-06-04T23:53:19.142Z",
+          "classline" : "[cn.orangeiot.mqtt.MQTTSocket:sendMessageToClient:638]",
+          "ip" : "120.76.73.193"
+        }
+      },
+      {
+        "_index" : "mqtt-server-v1",
+        "_type" : "doc",
+        "_id" : "yeHpJGsBYRycsKJ_VUkk",
+        "_score" : 1.0,
+        "_source" : {
+          "src" : "mqtt-server",
+          "logdate" : "2019-06-05 07:53:19.516",
+          "level" : "DEBUG",
+          "thread" : "[vert.x-eventloop-thread-1]",
+          "type" : "kafka",
+          "msg" : "<<< PUBLISH: 202 topic[/orangeiot/GW01183810089/event] payload length[185] qos[EXACTLY_ONCE] retain[false] dup[false]\n",
+          "process" : "mqtt-server",
+          "@timestamp" : "2019-06-04T23:53:19.516Z",
+          "classline" : "[cn.orangeiot.mqtt.MQTTSocket:onMessageFromClient:156]",
+          "ip" : "120.76.73.193"
+        }
+      },
+      {
+        "_index" : "mqtt-server-v1",
+        "_type" : "doc",
+        "_id" : "0eHpJGsBYRycsKJ_VUkk",
+        "_score" : 1.0,
+        "_source" : {
+          "src" : "mqtt-server",
+          "logdate" : "2019-06-05 07:53:19.533",
+          "level" : "DEBUG",
+          "thread" : "[vert.x-eventloop-thread-1]",
+          "type" : "kafka",
+          "msg" : "==AuthorizationClient==authorizePublish==token:36762d86-0478-4018-a716-d68280be8a71==topic:/orangeiot/GW01183810089/call\n",
+          "process" : "mqtt-server",
+          "@timestamp" : "2019-06-04T23:53:19.533Z",
+          "classline" : "[cn.orangeiot.mqtt.security.AuthorizationClient:authorizePublish:65]",
+          "ip" : "120.76.73.193"
+        }
+      },
+      {
+        "_index" : "mqtt-server-v1",
+        "_type" : "doc",
+        "_id" : "0uHpJGsBYRycsKJ_VUkk",
+        "_score" : 1.0,
+        "_source" : {
+          "src" : "mqtt-server",
+          "logdate" : "2019-06-05 07:53:19.535",
+          "level" : "INFO",
+          "thread" : "[vert.x-eventloop-thread-1]",
+          "type" : "kafka",
+          "msg" : "mqtt-process:{\"to\":\"client\",\"clientId\":\"gw:GW01183810089\",\"msgType\":3,\"mqttMsg\":\"PUBLISH: 1 topic[/orangeiot/GW01183810089/call] payload length[221] qos[LEAST_ONE] retain[false] dup[false]\",\"payload\":\"{\\\"userId\\\":\\\"EMPTY\\\",\\\"msgId\\\":16204,\\\"msgtype\\\":\\\"event\\\",\\\"deviceId\\\":\\\"GW01183810089\\\",\\\"func\\\":\\\"selectGWAdmin\\\",\\\"returnCode\\\":200,\\\"gwId\\\":\\\"GW01183810089\\\",\\\"timestamp\\\":\\\"1559692399504\\\",\\\"returnData\\\":{\\\"adminuid\\\":\\\"5cef8b0035736f5446509619\\\"}}\"}\n",
+          "process" : "mqtt-server",
+          "@timestamp" : "2019-06-04T23:53:19.535Z",
+          "classline" : "[cn.orangeiot.mqtt.MQTTSocket:sendMessageToClient:641]",
+          "ip" : "120.76.73.193"
+        }
+      },
+      {
+        "_index" : "mqtt-server-v1",
+        "_type" : "doc",
+        "_id" : "0-HpJGsBYRycsKJ_VUkk",
+        "_score" : 1.0,
+        "_source" : {
+          "src" : "mqtt-server",
+          "logdate" : "2019-06-05 07:53:19.545",
+          "level" : "INFO",
+          "thread" : "[vert.x-eventloop-thread-1]",
+          "type" : "kafka",
+          "msg" : "mqtt-process:{\"to\":\"server\",\"clientId\":\"gw:GW01183810089\",\"msgType\":12,\"mqttMsg\":\"PINGRESP\"}\n",
+          "process" : "mqtt-server",
+          "@timestamp" : "2019-06-04T23:53:19.545Z",
+          "classline" : "[cn.orangeiot.mqtt.MQTTSocket:onMessageFromClient:367]",
+          "ip" : "120.76.73.193"
+        }
+      },
+      {
+        "_index" : "mqtt-server-v1",
+        "_type" : "doc",
+        "_id" : "1OHpJGsBYRycsKJ_VUkk",
+        "_score" : 1.0,
+        "_source" : {
+          "src" : "mqtt-server",
+          "logdate" : "2019-06-05 07:53:19.547",
+          "level" : "INFO",
+          "thread" : "[vert.x-eventloop-thread-1]",
+          "type" : "kafka",
+          "msg" : "mqtt-process:{\"to\":\"client\",\"clientId\":\"gw:GW01183810089\",\"msgType\":13,\"mqttMsg\":\"PINGRESP\"}\n",
+          "process" : "mqtt-server",
+          "@timestamp" : "2019-06-04T23:53:19.547Z",
+          "classline" : "[cn.orangeiot.mqtt.MQTTSocket:sendMessageToClient:645]",
+          "ip" : "120.76.73.193"
+        }
+      },
+      {
+        "_index" : "mqtt-server-v1",
+        "_type" : "doc",
+        "_id" : "2eHpJGsBYRycsKJ_VUkk",
+        "_score" : 1.0,
+        "_source" : {
+          "src" : "mqtt-server",
+          "logdate" : "2019-06-05 07:53:19.592",
+          "level" : "INFO",
+          "thread" : "[vert.x-eventloop-thread-1]",
+          "type" : "kafka",
+          "msg" : "mqtt-process:{\"to\":\"server\",\"clientId\":\"gw:GW01183811461\",\"msgType\":3,\"mqttMsg\":\"PUBLISH: 1434 topic[/orangeiot/GW01183811461/event] payload length[184] qos[EXACTLY_ONCE] retain[false] dup[false]\",\"payload\":\"{ \\\"userId\\\": \\\"EMPTY\\\", \\\"msgId\\\": 7754, \\\"msgtype\\\": \\\"event\\\", \\\"deviceId\\\": \\\"GW01183811461\\\", \\\"func\\\": \\\"selectGWAdmin\\\", \\\"returnCode\\\": \\\"0\\\", \\\"gwId\\\": \\\"GW01183811461\\\", \\\"timestamp\\\": \\\"1559692399582\\\" }\"}\n",
+          "process" : "mqtt-server",
+          "@timestamp" : "2019-06-04T23:53:19.592Z",
+          "classline" : "[cn.orangeiot.mqtt.MQTTSocket:onMessageFromClient:277]",
+          "ip" : "120.76.73.193"
+        }
+      },
+      {
+        "_index" : "mqtt-server-v1",
+        "_type" : "doc",
+        "_id" : "5eHpJGsBYRycsKJ_VUkk",
+        "_score" : 1.0,
+        "_source" : {
+          "src" : "mqtt-server",
+          "logdate" : "2019-06-05 07:53:19.630",
+          "level" : "DEBUG",
+          "thread" : "[vert.x-eventloop-thread-1]",
+          "type" : "kafka",
+          "msg" : ">>> PINGRESP\n",
+          "process" : "mqtt-server",
+          "@timestamp" : "2019-06-04T23:53:19.630Z",
+          "classline" : "[cn.orangeiot.mqtt.MQTTSocket:sendMessageToClient:638]",
+          "ip" : "120.76.73.193"
+        }
+      },
+      {
+        "_index" : "mqtt-server-v1",
+        "_type" : "doc",
+        "_id" : "5-HpJGsBYRycsKJ_VUkk",
+        "_score" : 1.0,
+        "_source" : {
+          "src" : "mqtt-server",
+          "logdate" : "2019-06-05 07:53:19.652",
+          "level" : "DEBUG",
+          "thread" : "[vert.x-eventloop-thread-1]",
+          "type" : "kafka",
+          "msg" : ">>> PUBCOMP: 1434\n",
+          "process" : "mqtt-server",
+          "@timestamp" : "2019-06-04T23:53:19.652Z",
+          "classline" : "[cn.orangeiot.mqtt.MQTTSocket:sendMessageToClient:638]",
+          "ip" : "120.76.73.193"
+        }
+      },
+      {
+        "_index" : "mqtt-server-v1",
+        "_type" : "doc",
+        "_id" : "6-HpJGsBYRycsKJ_VUkk",
+        "_score" : 1.0,
+        "_source" : {
+          "src" : "mqtt-server",
+          "logdate" : "2019-06-05 07:53:19.730",
+          "level" : "DEBUG",
+          "thread" : "[vert.x-eventloop-thread-1]",
+          "type" : "kafka",
+          "msg" : ">>> PINGRESP\n",
+          "process" : "mqtt-server",
+          "@timestamp" : "2019-06-04T23:53:19.730Z",
+          "classline" : "[cn.orangeiot.mqtt.MQTTSocket:sendMessageToClient:638]",
+          "ip" : "120.76.73.193"
+        }
+      }
+    ]
+  }
+}
